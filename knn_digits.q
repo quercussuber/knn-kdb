@@ -89,7 +89,7 @@ test_harness:{[d;k;t]
   };
 
 
-explain:{ -1 "Usage: test_harness[training_set;k_value;] each 0!test_set\n"; -1 " Usage: predict get_nn[k_value;] apply_dist[training_set;]raze delete num from test_instance"};
+explain:{ -1 "Usage: test_harness[training_set;k_value;] each 0!test_set\n"; -1 "Usage: predict get_nn[k_value;] apply_dist[training_set;]raze delete num from test_instance";};
 
 
 \d .
