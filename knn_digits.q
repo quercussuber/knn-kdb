@@ -73,23 +73,3 @@ apply_dist:{[d;t] select num,distance:p from sqrt sums each t {x*x:x-y}/: d};
 show select Accuracy:sum[Hit]%count i by Test from raze R1;
 
 show select Accuracy_Manhattan:(avg;med)@\: Accuracy from select Accuracy:sum[Hit]%count i by Test from raze R1;
-
-
-
-// Lib version
-\d .knn
-
-apply_dist:{[d;t] select num,distance:p from sqrt sums each t {x*x:x-y}/: d}
-get_nn:{[k;d] select nn:num,distance from k#`distance xasc d};
-predict:{1#select Prediction:nn from x where ((count;i)fby nn)=max (count;i)fby nn};
-
-test_harness:{[d;k;t]
-  select Test:t`num, Prediction, Hit:Prediction=' t`num from
-  predict get_nn[k] apply_dist[d] raze delete num from t
-  };
-
-
-explain:{ -1 "Usage: test_harness[training_set;k_value;] each 0!test_set\n"; -1 "Usage: predict get_nn[k_value;] apply_dist[training_set;]raze delete num from test_instance";};
-
-
-\d .
