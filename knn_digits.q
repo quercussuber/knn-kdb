@@ -41,6 +41,7 @@ show select Accuracy:sum[Hit]%count i by Test from raze R3;
 
 R1:test_harness[tra;1;] peach 0!test;
 show select Accuracy:sum[Hit]%count i by Test from raze R1;
+show select Accuracy_Manhattan:(avg;med)@\: Accuracy from select Accuracy:sum[Hit]%count i by Test from raze R1;
 
 // Chap.6
 // 6.1
@@ -71,5 +72,4 @@ show (~) . (r2;r3);
 apply_dist:{[d;t] select num,distance:p from sqrt sums each t {x*x:x-y}/: d};
 \ts R1:test_harness[tra;1;] peach 0!test
 show select Accuracy:sum[Hit]%count i by Test from raze R1;
-
-show select Accuracy_Manhattan:(avg;med)@\: Accuracy from select Accuracy:sum[Hit]%count i by Test from raze R1;
+show select Accuracy_Euclidean:(avg;med)@\: Accuracy from select Accuracy:sum[Hit]%count i by Test from raze R1;
