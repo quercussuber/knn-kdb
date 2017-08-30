@@ -6,7 +6,7 @@
 "Test set:"
 show tes;
 
-"Trainig set"
+"Training set"
 show tra;
 
 // Chapter 3. Calculating distance metric
@@ -16,7 +16,7 @@ show tra1:1#tra;
 "tes1:"
 show tes1:1#tes;
 
-"Applying Calculating distance metric between tra1 and tes1"
+"Calculating distance metric between tra1 and tes1"
 dist:{abs x-y};
 // sums tra1 dist' tes1;
 show sums each tra1 dist' tes1;
@@ -42,7 +42,7 @@ apply_dist_manh:{[d;t] flip `class`dst!(exec class from d; sum each abs t -/: fl
 "Single Test instance passed as dictionary using adverb each"
 show apply_dist_manh[tra;]each delete class from tes1;
 "Multiple Test instances passed as dictionary using adverb each"
-show apply_dist_manh[tra]each 2#delete class from tes;
+show apply_dist_manh[tra;]each 2#delete class from tes;
 "Single Test instance passed as dictionary, no adverb each"
 show apply_dist_manh[tra;]raze delete class from tes1;
 
@@ -114,7 +114,7 @@ show select Accuracy:avg Hit by Test from raze R1:test_harness[tra;1;] peach 0!t
 show  min over r1=r2;
 "r1~r2"
 show r1~r2
-"xexp returns is datatype float"
+"xexp returns datatype float"
 show exec distinct t from meta r1;
 "{x*x} preserve the dataset type int"
 show exec distinct t from meta r2;
