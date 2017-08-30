@@ -130,14 +130,13 @@ show select Accuracy: avg Hit from raze R1;
 "k=1 Accuracy per class"
 show select Accuracy:avg Hit by Test from raze R1;
 
-// Chapter 6.4 Benchmarks
-"Euclidean Distance Benchmark. Wait ..."
-{[t;d;k] t0:.z.t; res: raze test_harness[t;k;]peach 0!d;t1:.z.t;
-  0N! "|"sv ("k: ",string k;"ms: ",string`int$t1-t0;"accuracy: ",string exec avg Hit from res)
-  }[tra;tes;]each 1+til 10;
+// Chapter 6.3 Benchmarks
+// Adjusting test_harness
+test_harness:{[d;k;t] R:apply_dist[d] raze delete class from t; select Test:t`class, Hit:Prediction=' t`class,k from
+  raze predict each k#\:`dst xasc R};
+"Euclidean Distance Benchmark k=1..10 - Wait ..."
+\ts show select Accuracy:avg Hit by k from raze test_harness[tra;1+til 10]peach 0!tes
 
-"Manhattan Distance Benchmark. Wait ..."
+"Manhattan Distance Benchmark. k=1..10 - Wait ..."
 apply_dist: apply_dist_manh;
-{[t;d;k] t0:.z.t; res: raze test_harness[t;k;]peach 0!d;t1:.z.t;
-  0N! "|"sv ("k: ",string k;"ms: ",string`int$t1-t0;"accuracy: ",string exec avg Hit from res)
-  }[tra;tes;]each 1+til 10;
+\ts show select Accuracy:avg Hit by k from raze test_harness[tra;1+til 10]peach 0!tes
