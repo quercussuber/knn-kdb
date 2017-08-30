@@ -4,7 +4,7 @@ This repository contains all code samples described in the Machine Learning in k
 
 Code samples in knn_digits.q are intended to assist the user with building, testing and benchmarking a k-NN classifier.
 
-knn_utilis.q is a kNN util library, collecting the necessary functions and helpers to:
+knn_utilis.q is a usable kNN util library with the necessary functions, and helpers to:
 * calculate distance metric
 * extract the k-nearest neighbors
 * classify a test instance
