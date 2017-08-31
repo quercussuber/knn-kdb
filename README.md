@@ -2,9 +2,9 @@
 This repository contains all code samples described in the Machine Learning in kdb+: k-NN classification and pattern recognition with q whitepaper.
 
 
-Code samples in knn_digits.q are intended to assist the user with building, testing and benchmarking a k-NN classifier.
+Code samples in knn_digits.q are intended to assist the user with building, testing, and benchmarking a k-NN classifier.
 
-knn_utilis.q is a usable kNN util library with the necessary functions, and helpers to:
+knn_utils.q is a usable kNN util library with the necessary functions and helpers to:
 * calculate distance metric
 * extract the k-nearest neighbors
 * classify a test instance
